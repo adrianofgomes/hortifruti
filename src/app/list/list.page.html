@@ -12,11 +12,17 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end" style="width: 15%;">
+      <!--ion-icon [name]="item.icon" slot="start"></ion-icon-->
+      <ion-item  style="width: 15%; min-width: 110px;">
+        <ion-icon name="add-circle-outline" (click)="item.qtd=item.qtd+1;" color="success"></ion-icon>
+        <ion-input type="number" value="0" text-center [(ngModel)]="item.qtd"></ion-input>
+        <ion-icon name="remove-circle-outline" (click)="item.qtd=item.qtd-1;" color="danger"></ion-icon>
+      </ion-item>
+      <ion-label>{{item.title}}</ion-label>
+      <ion-icon [name]="item.icon" slot="end"></ion-icon>
+      <!--div class="item-note" slot="end" style="width: 15%;">
         <ion-input type="number" [(ngModel)]="item.qtd" maxlength="10"></ion-input>
-      </div>
+      </div-->
     </ion-item>
   </ion-list>
   <!--
